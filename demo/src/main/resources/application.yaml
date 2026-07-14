@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  datasource:
+    url:  ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  mqtt:
+    broker: ${MQTT_BROKER}
+    client-id: spring-posture-server
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  brevo:
+    api-key: ${BREVO_API_KEY}
+    sender-email: ${BREVO_SENDER_EMAIL}
+    sender-name: ${BREVO_SENDER_NAME}
+
+  jackson:
+    time-zone: Asia/Ho_Chi_Minh
