@@ -1,0 +1,94 @@
+/* --- TỔNG THỂ SIDEBAR --- */
+.sidebar-custom {
+  background: rgba(11, 15, 26, 0.95) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  min-height: 100vh;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important; /* Hiệu ứng thụt mượt mà */
+}
+
+/* Khung chứa Logo và Nút bấm đóng mở */
+.sidebar-header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 16px;
+  height: 70px;
+}
+
+/* TEXT LOGO GRADIENT PHÁT SÁNG */
+.logo-text {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, #2dd4bf, #06b6d4);
+  -webkit-background-clip: text; /* Trình duyệt WebKit (Chrome, Safari, Opera) */
+  background-clip: text;         /* Thuộc tính tiêu chuẩn (Firefox, Edge) */
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(45, 212, 191, 0.3));
+  white-space: nowrap;
+}
+
+/* NÚT TRIGGER THỤT RA THỤT VÀO */
+.collapse-toggle-btn {
+  color: #9ca3af !important;
+  font-size: 16px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease !important;
+}
+
+.collapse-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  color: #2dd4bf !important;
+}
+
+/* --- ĐỊNH DẠNG MENU SIDER --- */
+.sidebar-menu-custom {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 8px !important;
+}
+
+/* Style cho từng item trong menu */
+.sidebar-menu-custom .ant-menu-item {
+  border-radius: 8px !important;
+  margin-bottom: 8px !important;
+  height: 44px !important;
+  line-height: 44px !important;
+  color: #9ca3af !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Hover vào Item chưa active */
+.sidebar-menu-custom .ant-menu-item:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* KHI MENU ITEM ĐƯỢC CHỌN (ACTIVE) - Đổi sang màu Neon đẹp mắt */
+.sidebar-menu-custom .ant-menu-item-selected {
+  background: linear-gradient(90deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0) 100%) !important;
+  color: #06b6d4 !important;
+  font-weight: 600 !important;
+  border-left: 3px solid #06b6d4 !important;
+  border-radius: 0 8px 8px 0 !important; /* Bo góc vát nhẹ sang phải */
+}
+
+/* Icon phát sáng nhẹ */
+.menu-icon-glow {
+  font-size: 16px !important;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-menu-custom .ant-menu-item-selected .menu-icon-glow {
+  filter: drop-shadow(0 0 6px #06b6d4);
+}
+
+.sidebar-menu-custom .ant-menu-item:hover .menu-icon-glow {
+  transform: scale(1.1);
+}
