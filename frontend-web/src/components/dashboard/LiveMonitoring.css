@@ -1,0 +1,150 @@
+.live-monitoring {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Cập nhật header thành flexbox để đẩy nút bấm sang góc phải giống ảnh */
+.monitoring-header {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.section-heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Hiển thị mã phiên giám sát ngay dưới chữ Live Monitoring */
+.session-tag {
+  font-family: 'Courier New', monospace;
+  color: #888888;
+  font-size: 13px;
+  display: block;
+  margin-top: 4px;
+}
+
+.action-buttons .ant-btn {
+  font-weight:  600;
+  border-radius: 6px;
+}
+
+.btn-start {
+  background-color: #1ec76f !important; /* Đồng bộ màu xanh lục giống Badge LIVE của bạn */
+  border-color: #1ec76f !important;
+  color: #ffffff !important;
+}
+
+.btn-start:hover {
+  background-color: #17a356 !important;
+  border-color: #17a356 !important;
+}
+
+.btn-end {
+  background-color: #ff4d4f !important;
+  border-color: #ff4d4f !important;
+  color: #ffffff !important;
+}
+
+.btn-end:hover {
+  background-color: #d9363e !important;
+  border-color: #d9363e !important;
+}
+/* Đổi justify-content thành space-between để camera icon ở bên trái, LIVE ở bên phải như ảnh mẫu */
+.monitoring-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 0 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #888;
+}
+
+.monitoring-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #888;
+}
+
+.camera-info-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.camera-icon {
+  font-size: 16px;
+}
+
+.live-badge {
+  margin-left: auto !important;
+}
+
+.live-badge .ant-badge-status-dot {
+  background-color: #1ec76f;
+}
+
+.live-badge .ant-badge-status-text {
+  color: #1ec76f;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.skeleton-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 220px; /* Tăng nhẹ để chứa vừa vặn hình nhân và text */
+}
+
+/* Trạng thái trống khi chưa bấm Start: hiển thị vòng xoay Spin căn giữa */
+.skeleton-container.blank-state {
+  background-color: #0d0d0d; /* Làm nền tối hơn một chút tạo chiều sâu */
+  border-radius: 6px;
+  border: 1px dashed #2a2a2a; /* Tạo đường viền đứt đoạn bao quanh vùng chờ */
+}
+
+/* Tùy chỉnh màu chữ của Ant Design Spin cho hợp nền tối */
+.skeleton-container.blank-state .ant-spin-text {
+  color: #666;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.skeleton-figure {
+  width: 120px;
+  height: 180px;
+  filter: drop-shadow(0 0 4px rgba(107, 122, 255, 0.3));
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+}
+
+.camera-id {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+  font-family: 'Courier New', monospace;
+}
+
+.skeleton-image-live {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain; /* Giữ nguyên tỷ lệ ảnh camera không bị méo */
+  border-radius: 6px;
+  background-color: #000000;
+  box-shadow: 0 0 10px rgba(107, 122, 255, 0.2);
+}
