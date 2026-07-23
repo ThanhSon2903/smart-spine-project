@@ -21,6 +21,8 @@ Smart Spine is a real-time posture monitoring system built with Spring Boot, Rea
 - Docker
 - Swagger / OpenAPI
 - Brevo API
+- RabbitMQ
+- Redis
 
 ### AI
 - Python
