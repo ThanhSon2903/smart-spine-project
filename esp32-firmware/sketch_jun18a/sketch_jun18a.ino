@@ -6,10 +6,10 @@
 
 #define ui unsigned int
 #define ul unsigned long
-#define LED_GREEN 27
-#define LED_RED 26
-#define LED_YELLOW 25
-#define BUZZER 33
+#define LED_GREEN 18
+#define LED_RED 19
+#define LED_YELLOW 21
+#define BUZZER 22
 #define MP3_RX 16
 #define MP3_TX 17
 
@@ -22,8 +22,8 @@ DFRobotDFPlayerMini player;
 
 
 //Config Wifi
-const char *ssid = "son123";
-const char *password = "1234567894";
+const char *ssid = "son";
+const char *password = "11111111";
 
 //MQTT Broker
 const char *mqtt_broker = "broker.hivemq.com";
@@ -37,18 +37,18 @@ PubSubClient client(espClient);
 //Kết nối đến Wifi;
 void setUpWiFi(){
   delay(10);
-  Serial.print("Connecting to ");
+  Serial.print("Kết nối tới ");
   Serial.println(ssid);
 
   WiFi.begin(ssid,password);
 
   while(WiFi.status() != WL_CONNECTED){
     delay(500);
-    Serial.println("Connecting to WiFi..");
+    Serial.println("Kết nối tới WiFi..");
   }
   Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.print("IP address: ");
+  Serial.println("WiFi đã kết nối");
+  Serial.print("Địa chỉ: ");
   Serial.println(WiFi.localIP());
 }
 
@@ -121,7 +121,7 @@ void callback(char *topic, byte *payload, ui length){
 
 void reconnect(){
   while(!client.connected()){
-    Serial.println("Connecting MQTT...");
+    Serial.println("Kết nối tới MQTT...");
     Serial.println("");
     String clientId = "ESP32-";
     clientId += String(random(0xffff), HEX);
@@ -150,13 +150,13 @@ void setup() {
 
   dfSerial.begin(9600,SERIAL_8N1,MP3_RX,MP3_TX);
   if (!player.begin(dfSerial)) {
-    Serial.println("DFPlayer Mini not found!");
+    Serial.println("Không kết nối được với DFMini!");
     while (true) {
       delay(1000);
     }
   }
-  player.volume(25);
-  Serial.println("DFPlayer Ready");
+  player.volume(20);
+  Serial.println("Sẵn sàng làm việc");
 }
 
 void loop() {
