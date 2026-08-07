@@ -61,7 +61,7 @@ Dataset được sử dụng để khảo sát, hiệu chỉnh các tham số v�
 
 Hệ thống không huấn luyện một mô hình học sâu riêng biệt trên dataset này. MediaPipe Pose được sử dụng để phát hiện các điểm landmark, sau đó hệ thống tính toán các đặc trưng hình học và phân loại tư thế dựa trên các ngưỡng được thiết lập.
   
-## 7. Một số hình ảnh khi thử nghiệm
+## 7. Một số hình ảnh thu thập trong quá trình thử nghiệm và đánh giá hệ thống nhận diện tư thế.
 [1]: https://raw.githubusercontent.com/ThanhSon2903/smart-spine-project/refs/heads/main/0001.jpg
 [2]: https://raw.githubusercontent.com/ThanhSon2903/smart-spine-project/refs/heads/main/0002.jpg
 [3]: https://raw.githubusercontent.com/ThanhSon2903/smart-spine-project/refs/heads/main/0003.jpg
