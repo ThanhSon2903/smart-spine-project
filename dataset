@@ -1,0 +1,63 @@
+# Dataset nhận diện tư thế
+
+## 1. Giới thiệu
+
+Dataset được xây dựng nhằm phục vụ quá trình xây dựng, hiệu chỉnh và đánh giá hệ thống nhận diện tư thế ngồi trong đồ án "Thiết bị cảnh báo sai tư thế và bảo vệ cột sống ứng dụng thị giác máy tính".
+
+Dữ liệu gồm các hình ảnh thể hiện những trạng thái tư thế ngồi khác nhau của người sử dụng.
+
+## 2. Phân loại dữ liệu
+
+Dataset được chia thành 3 nhóm:
+
+| Nhóm dữ liệu | Mô tả |
+|---|---|
+| Straight | Tư thế ngồi đúng, lưng và cổ tương đối thẳng |
+| Warning | Tư thế bắt đầu có dấu hiệu cúi người hoặc cúi cổ |
+| Bad | Tư thế ngồi sai, góc cổ hoặc góc thân vượt quá ngưỡng cho phép |
+
+## 3. Phương pháp thu thập dữ liệu
+
+Các hình ảnh được thu thập từ quá trình thực nghiệm với nhiều trạng thái tư thế ngồi khác nhau. Dữ liệu được sử dụng để quan sát sự thay đổi của các đặc trưng tư thế và hiệu chỉnh các ngưỡng nhận diện phù hợp cho hệ thống.
+
+## 4. Xử lý dữ liệu
+
+Hệ thống sử dụng MediaPipe Pose để phát hiện các điểm landmark trên cơ thể.
+
+Các điểm landmark chính được sử dụng gồm:
+
+- Mũi (Nose)
+- Tai (Ear)
+- Vai trái và vai phải (Shoulders)
+- Hông trái và hông phải (Hips)
+
+Từ các điểm landmark, hệ thống tính toán các đặc trưng:
+
+- Góc thân người.
+- Góc cổ.
+- Độ chênh lệch giữa hai vai.
+
+Các đặc trưng này được sử dụng để xác định trạng thái tư thế của người sử dụng.
+
+## 5. Ngưỡng phân loại
+
+Các ngưỡng được sử dụng trong hệ thống:
+
+### Góc thân người
+
+- Góc ≤ 15°: Tư thế thẳng (Straight)
+- 15° < góc ≤ 30°: Cảnh báo cúi người (Forward Warning)
+- Góc > 30°: Cúi người sai tư thế (Forward Bad)
+
+### Góc cổ
+
+- Góc ≤ 18°: Tư thế thẳng (Straight)
+- 18° < góc ≤ 30°: Cảnh báo cúi cổ (Bent Warning)
+- Góc > 30°: Cúi cổ sai tư thế (Bent Bad)
+
+## 6. Mục đích sử dụng
+
+Dataset được sử dụng để khảo sát, hiệu chỉnh các tham số và đánh giá khả năng nhận diện tư thế của hệ thống.
+
+Hệ thống không huấn luyện một mô hình học sâu riêng biệt trên dataset này. MediaPipe Pose được sử dụng để phát hiện các điểm landmark, sau đó hệ thống tính toán các đặc trưng hình học và phân loại tư thế dựa trên các ngưỡng được thiết lập.
+  
