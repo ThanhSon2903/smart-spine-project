@@ -32,17 +32,16 @@ Smart Spine is a real-time posture monitoring system built with Spring Boot, Rea
 ### Frontend
 - ReactJS, Tailwind CSS
 - Recharts / Chart.js
-
-### Link Deloy
-https://deloy-on-vercel.vercel.app/dashboard
 ---
 
 ## ✨ Key Features
 - User registration with email verification
-- JWT-based authentication and authorization
+- JWT-based authentication with Access Token and Refresh Token management using Redis.
 - RESTful APIs for posture data management
 - Real-time posture notifications using WebSocket
 - AI-powered posture detection with MediaPipe Pose
 - Historical posture tracking and statistical reports
 - Interactive dashboard for real-time monitoring
 
+### Link Deloy
+https://deloy-on-vercel.vercel.app/dashboard
