@@ -6,10 +6,10 @@
 
 #define ui unsigned int
 #define ul unsigned long
-#define LED_GREEN 18
-#define LED_RED 19
-#define LED_YELLOW 21
-#define BUZZER 22
+#define LED_GREEN 27
+#define LED_RED 26
+#define LED_YELLOW 25
+#define BUZZER 18
 #define MP3_RX 16
 #define MP3_TX 17
 
@@ -17,7 +17,7 @@ bool waitingMusic = false;
 ul musicStart = 0;
 
 //Config DFMiniPlayer
-HardwareSerial dfSerial(2); //UART2 tren ESP32
+HardwareSerial dfSerial(2);
 DFRobotDFPlayerMini player;
 
 
@@ -52,9 +52,14 @@ void setUpWiFi(){
   Serial.println(WiFi.localIP());
 }
 
+
+
 void ok(int file){
   player.play(file);
 }
+
+
+
 
 void callback(char *topic, byte *payload, ui length){
   String json = "";
@@ -76,13 +81,12 @@ void callback(char *topic, byte *payload, ui length){
 
   
   if(status == "GOOD_POSTURE"){
-
     digitalWrite(LED_GREEN,HIGH);
     digitalWrite(LED_YELLOW,LOW);
     digitalWrite(LED_RED,LOW);
     noTone(BUZZER); 
     if(playVoice){
-      ok(1);
+      ok(4);
     }
   }
 
@@ -112,7 +116,7 @@ void callback(char *topic, byte *payload, ui length){
   }
   else if(status == "BREAK_TIME"){
     if(playVoice){
-      ok(4);
+      ok(5);
       waitingMusic = true;
       musicStart = millis();
     }
@@ -155,8 +159,10 @@ void setup() {
       delay(1000);
     }
   }
-  player.volume(20);
-  Serial.println("Sẵn sàng làm việc");
+  DigitalWrite(LED_GREEN,HIGH);
+  delay(1000);
+  player.volume(30);
+  ok(6);
 }
 
 void loop() {
@@ -164,7 +170,7 @@ void loop() {
   client.loop();
 
   if(waitingMusic && millis() - musicStart >= 10000){
-    ok(5);
+    ok(1);
     waitingMusic = false;
   }
 }
