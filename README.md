@@ -44,4 +44,5 @@ Smart Spine is a real-time posture monitoring system built with Spring Boot, Rea
 - Interactive dashboard for real-time monitoring
 
 ### Link Deloy
-https://deloy-on-vercel.vercel.app/dashboard
+https://deloy-on-vercel.vercel.app/register
+
